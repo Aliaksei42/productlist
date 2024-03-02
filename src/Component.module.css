@@ -1,0 +1,57 @@
+/* Component.module.css */
+.overflowAuto {
+  overflow: auto; /* автоматический скролл при необходимости */
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .borderTop {
+    border-top: 1px solid #e5e7eb; /* цвет верхней границы */
+  }
+  
+  .dark .borderTop {
+    border-top-color: #374151; /* цвет верхней границы в темной теме */
+  }
+  
+  .headerCell {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280; /* текстовый цвет */
+    text-transform: uppercase;
+  }
+  
+  .row {
+    transition: all 0.3s;
+  }
+  
+  .row:hover {
+    background-color: #f9fafb; /* цвет фона при наведении */
+  }
+  
+  .cell {
+    padding: 0.75rem;
+  }
+  
+.button {
+  padding: 0.5rem 1rem; /* вертикальный и горизонтальный внутренний отступ */
+  background-color: #e5e7eb; /* цвет фона */
+  color: #4b5563; /* текстовый цвет */
+  border-radius: 0.375rem; /* радиус скругления углов */
+  transition: background-color 0.3s; /* анимация перехода */
+}
+
+.button:hover {
+  background-color: #d1d5db; /* цвет фона при наведении */
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* промежуток между элементами */
+}
+
