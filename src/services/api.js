@@ -19,8 +19,8 @@ export async function fetchData() {
         body: JSON.stringify({
             action: 'get_ids',
             params: {
-                offset: 10,
-                limit: 3,
+                offset: 0,
+                limit: 50,
             },
         }),
     }
@@ -34,7 +34,7 @@ export async function fetchData() {
             throw new Error('Failed to fetch data')
         }
         const data = await response.json()
-        return data.result
+                return data.result
     } catch (error) {
         throw new Error(error.message)
     }
