@@ -2,11 +2,9 @@
 import md5 from 'md5'
 
 export async function fetchData(offset) {
-   
     const password = 'Valantis'
     const timestamp = new Date().toISOString().slice(0, 10).replace(/-/g, '')
     const authString = md5(password + '_' + timestamp)
-
 
     const headers = {
         'X-Auth': authString,
@@ -36,7 +34,7 @@ export async function fetchData(offset) {
             throw new Error('Failed to fetch data')
         }
         const data = await response.json()
-                return data.result
+        return data.result
     } catch (error) {
         throw new Error(error.message)
     }
