@@ -2,10 +2,11 @@
 import md5 from 'md5';
 import { fetchData } from './api.js';
 
-export async function fetchPosts() {
+
+export async function fetchPosts(offset) {
     try {
         // Получаем массив хэшей, вызвав функцию fetchData
-        const hashes = await fetchData();
+        const hashes = await fetchData(offset);
 
         // Формируем запрос на получение постов по полученным хэшам
         const password = 'Valantis';

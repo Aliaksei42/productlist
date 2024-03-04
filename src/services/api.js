@@ -1,10 +1,12 @@
 // api.js
 import md5 from 'md5'
 
-export async function fetchData() {
+export async function fetchData(offset) {
+   
     const password = 'Valantis'
     const timestamp = new Date().toISOString().slice(0, 10).replace(/-/g, '')
     const authString = md5(password + '_' + timestamp)
+
 
     const headers = {
         'X-Auth': authString,
@@ -19,7 +21,7 @@ export async function fetchData() {
         body: JSON.stringify({
             action: 'get_ids',
             params: {
-                offset: 0,
+                offset: offset,
                 limit: 50,
             },
         }),
