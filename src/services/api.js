@@ -27,7 +27,7 @@ export async function fetchData(offset) {
 
     try {
         const response = await fetch(
-            'https://api.valantis.store:40000/',
+            'http://api.valantis.store:40000/',
             request
         )
         if (!response.ok) {
