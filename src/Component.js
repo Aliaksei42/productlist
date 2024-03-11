@@ -12,13 +12,20 @@ function Component() {
         const fetchArticles = async () => {
             try {
                 const res = await fetchPosts(offset)
+                if (!res) {
+                    throw new Error('Received empty response')
+                }
                 const uniqueItemsMap = {} // Объект для хранения уникальных товаров
-                res.forEach((item) => {
-                    // Если товар с таким id еще не встречался, добавляем его в объект
-                    if (!uniqueItemsMap[item.id]) {
-                        uniqueItemsMap[item.id] = item
-                    }
-                })
+                if (Array.isArray(res)) {
+                    res.forEach((item) => {
+                        // Если товар с таким id еще не встречался, добавляем его в объект
+                        if (!uniqueItemsMap[item.id]) {
+                            uniqueItemsMap[item.id] = item
+                        }
+                    })
+                } else {
+                    throw new Error('Invalid response format')
+                }
                 console.log(offset)
                 // Преобразуем объект обратно в массив
                 const uniqueItems = Object.values(uniqueItemsMap)
