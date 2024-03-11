@@ -40,10 +40,13 @@ export async function fetchPosts(offset) {
         if (!response.ok) {
             throw new Error('Failed to fetch data')
         }
-        const data = await response.json()
-        return data.result
+        const data = await response.json();
+if (!data || !data.result) {
+    throw new Error('Received empty response');
+}
+return data.result;
     } catch (error) {
-        console.error(error.message)
+        console.error(error)
         return null
     }
 }
